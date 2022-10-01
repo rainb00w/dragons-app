@@ -50,11 +50,11 @@ const DragonPage = () => {
         </Swiper>
         {dragon && (
           <div className={s.textContainer}>
-            <p>Dragon name : {dragon.name} </p>
-            <p>Dragon description : {dragon.description} </p>
-            <p>Wiki LInk : {dragon.wikipedia} </p>
-            <p>Height with trunk : {dragon.height_w_trunk.meters} m</p>
-            <p>Orbit duration : {dragon.orbit_duration_yr} </p>
+            <p><span className={s.pTitle}>Dragon name :</span> {dragon.name} </p>
+            <p><span className={s.pTitle}>Dragon description :</span> {dragon.description} </p>
+            <p><span className={s.pTitle}>Wiki LInk :</span> {dragon.wikipedia} </p>
+            <p><span className={s.pTitle}>Height with trunk :</span> {dragon.height_w_trunk.meters} m</p>
+            <p><span className={s.pTitle}>Orbit duration :</span> {dragon.orbit_duration_yr} </p>
           </div>
         )}
       </Container>

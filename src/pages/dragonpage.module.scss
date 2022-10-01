@@ -3,4 +3,13 @@
   margin-right: auto;
   padding: 40px 20px 0 20px;
   max-width: 800px;
+  word-break: break-all;
+  @media screen and (max-width: 479px) {
+    padding: 20px 5px 0 5px;
+    max-width: 300px;
+}
+}
+
+.pTitle{
+    font-weight: bolder;
 }

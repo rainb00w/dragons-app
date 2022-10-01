@@ -19,9 +19,21 @@ const LoginPage = () => {
           defaultActiveKey="login"
           id="uncontrolled-tab-example"
           className="mb-2"
-          //   style={{ 'max-width': '600px', 'marginLeft': 'auto', 'marginRight' : 'auto'}}
+          style={{
+            maxWidth: '400px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
         >
-          <Tab eventKey="login" title="Log In">
+          <Tab
+            eventKey="login"
+            title="Log In"
+            style={{
+              maxWidth: '300px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
             <Formik
               initialValues={{ email: '', password: '' }}
               onSubmit={({ email, password }, { setSubmitting }) => {
@@ -84,7 +96,7 @@ const LoginPage = () => {
                     ) : null}
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group text-center">
                     <button
                       type="submit"
                       className="btn btn-warning mt-3"
@@ -97,7 +109,15 @@ const LoginPage = () => {
               )}
             </Formik>
           </Tab>
-          <Tab eventKey="Register" title="Register">
+          <Tab
+            eventKey="Register"
+            title="Register"
+            style={{
+              maxWidth: '300px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
             <Formik
               initialValues={{ name: '', email: '', password: '' }}
               onSubmit={({ name, email, password }, { setSubmitting }) => {
@@ -107,9 +127,9 @@ const LoginPage = () => {
                     email,
                     password,
                   })
-                ).then(answer => console.log('answer', answer)).catch(
-                  error => console.log('error', error)
-                );
+                )
+                  .then(answer => console.log('answer', answer))
+                  .catch(error => console.log('error', error));
               }}
               validationSchema={Yup.object().shape({
                 name: Yup.string()
@@ -191,7 +211,7 @@ const LoginPage = () => {
                     ) : null}
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group text-center">
                     <button
                       type="submit"
                       className="btn btn-warning mt-3"
@@ -212,42 +232,41 @@ const LoginPage = () => {
 
 export default LoginPage;
 
+// .then(answer => {
+//   const { data, response } = answer?.payload;
+//   setErrNameRegistration('');
+//   setErrEmailRegistration('');
 
-  // .then(answer => {
-  //   const { data, response } = answer?.payload;
-  //   setErrNameRegistration('');
-  //   setErrEmailRegistration('');
-
-  //   if (data) {
-  //     resetForm({ values: '' });
-  //   } else if (response) {
-  //     throw response.data.message;
-  //   }
-  // })
-  // .catch(error => {
-  //   switch (error) {
-  //     case 'name':
-  //       setErrNameRegistration(
-  //         'User with this name is already registered'
-  //       );
-  //       return;
-  //     case 'email':
-  //       setErrEmailRegistration(
-  //         'User with this email is already registered'
-  //       );
-  //       return;
-  //     case 'name&email':
-  //       setErrNameRegistration(
-  //         'User with this name is already registered'
-  //       );
-  //       setErrEmailRegistration(
-  //         'User with this email is already registered'
-  //       );
-  //       return;
-  //     default:
-  //       return;
-  //   }
-  // });
+//   if (data) {
+//     resetForm({ values: '' });
+//   } else if (response) {
+//     throw response.data.message;
+//   }
+// })
+// .catch(error => {
+//   switch (error) {
+//     case 'name':
+//       setErrNameRegistration(
+//         'User with this name is already registered'
+//       );
+//       return;
+//     case 'email':
+//       setErrEmailRegistration(
+//         'User with this email is already registered'
+//       );
+//       return;
+//     case 'name&email':
+//       setErrNameRegistration(
+//         'User with this name is already registered'
+//       );
+//       setErrEmailRegistration(
+//         'User with this email is already registered'
+//       );
+//       return;
+//     default:
+//       return;
+//   }
+// });
 
 // const { email, password } = values;
 // dispatch(authOperations.logIn({ email: email, password: password }));
