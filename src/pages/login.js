@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import { Button, Col, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';

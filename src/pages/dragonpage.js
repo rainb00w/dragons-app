@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import * as FetchApi from '../services/fetchApi';
 import s from './dragonpage.module.scss';
 import { Container } from 'react-bootstrap';
@@ -49,13 +49,13 @@ const DragonPage = () => {
           ))}
         </Swiper>
         {dragon && (
-          <>
+          <div className={s.textContainer}>
             <p>Dragon name : {dragon.name} </p>
             <p>Dragon description : {dragon.description} </p>
             <p>Wiki LInk : {dragon.wikipedia} </p>
             <p>Height with trunk : {dragon.height_w_trunk.meters} m</p>
             <p>Orbit duration : {dragon.orbit_duration_yr} </p>
-          </>
+          </div>
         )}
       </Container>
     </>

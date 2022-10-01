@@ -3,7 +3,7 @@ import React, {  Suspense, lazy} from 'react';
 
 import LoginPage from './pages/login';
 import HomePage from './pages/homepage';
-import DragonPage from './pages/dragonpage';
+// import DragonPage from './pages/dragonpage';
 import NavigationBar from './components/navbar';
 
 import PrivateRoute from './routes/privateRoute';
@@ -12,7 +12,7 @@ import PublicRoute from './routes/publicRoute';
 
 // const LoginPage = lazy(() => import('./pages/login'));
 // const HomePage = lazy(() => import('./pages/homepage'));
-// const DragonPage = lazy(() => import('./pages/dragonpage'));
+const DragonPage = lazy(() => import('./pages/dragonpage'));
 // const NavigationBar = lazy(() => import('./components/navbar'));
 
 
