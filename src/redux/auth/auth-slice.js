@@ -13,12 +13,6 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [authOperations.register.fulfilled](state, action) {
-      // console.log('action payload', action);
-      state.user = action?.payload.name;
-      state.token = action?.payload.token;
-      state.isLoggedIn = true;
-    },
     [authOperations.logIn.pending](state) {
       state.loginError = null;
       state.isLogging = true;
@@ -27,7 +21,6 @@ const authSlice = createSlice({
       state.loginError = action.payload;
     },
     [authOperations.logIn.fulfilled](state, action) {
-      // console.log('login payload', state.payload);
       state.user = action?.payload.name;      ;
       state.token = action?.payload.token;
       state.isLoggedIn = true;
@@ -39,11 +32,6 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
-    // [authOperations.fetchCurrentUser.fulfilled](state, action) {
-    //   state.user = action.payload;
-    //   state.isLoggedIn = true;
-    //   // console.log('fetchCurrentUser SLICE', state.isLoggedIn);
-    // },
   },
 });
 

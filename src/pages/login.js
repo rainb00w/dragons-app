@@ -2,19 +2,34 @@ import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import {  useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <>
       <Container
         style={{ maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}
       >
+        <Card
+          className="text-center border-0 mt-5 mb-4"
+          style={{ maxWidth: '300px', marginLeft: 'auto', marginRight: 'auto' }}
+        >
+          <Card.Img
+            variant="top"
+            src="https://media.tenor.com/oUsqcKvpZLoAAAAM/dragon-tales-childhood-shows.gif"
+          />
+          <Card.Title className="mt-4">Find your dragon</Card.Title>
+        </Card>
+
         <Tabs
           defaultActiveKey="login"
           id="uncontrolled-tab-example"
@@ -120,7 +135,7 @@ const LoginPage = () => {
           >
             <Formik
               initialValues={{ name: '', email: '', password: '' }}
-              onSubmit={({ name, email, password }, { setSubmitting }) => {
+              onSubmit={({ name, email, password }, actions) => {
                 dispatch(
                   authOperations.register({
                     name,
@@ -128,7 +143,28 @@ const LoginPage = () => {
                     password,
                   })
                 )
-                  .then(answer => console.log('answer', answer))
+                  .then(answer => {
+                    console.log('answer here', answer?.meta.requestStatus);
+                    if (answer?.error?.message === 'Rejected') {
+                      toast.warn(
+                        'Please check your info! All fields should be unique',
+                        {
+                          position: toast.POSITION.TOP_CENTER,
+                        }
+                      );
+                    }
+                    if ( answer?.meta.requestStatus === 'fulfilled') {
+                      actions.resetForm({ name: '', email: '', password: '' });
+                      toast.warn(
+                        'Please check your email!',
+                        {
+                          position: toast.POSITION.TOP_CENTER,
+                        }
+                      );
+                      setTimeout(() => {    navigate('/') }, 2000);
+                    
+                    }
+                  })
                   .catch(error => console.log('error', error));
               }}
               validationSchema={Yup.object().shape({
@@ -226,47 +262,9 @@ const LoginPage = () => {
           </Tab>
         </Tabs>
       </Container>
+      <ToastContainer autoClose={1000} />
     </>
   );
 };
 
 export default LoginPage;
-
-// .then(answer => {
-//   const { data, response } = answer?.payload;
-//   setErrNameRegistration('');
-//   setErrEmailRegistration('');
-
-//   if (data) {
-//     resetForm({ values: '' });
-//   } else if (response) {
-//     throw response.data.message;
-//   }
-// })
-// .catch(error => {
-//   switch (error) {
-//     case 'name':
-//       setErrNameRegistration(
-//         'User with this name is already registered'
-//       );
-//       return;
-//     case 'email':
-//       setErrEmailRegistration(
-//         'User with this email is already registered'
-//       );
-//       return;
-//     case 'name&email':
-//       setErrNameRegistration(
-//         'User with this name is already registered'
-//       );
-//       setErrEmailRegistration(
-//         'User with this email is already registered'
-//       );
-//       return;
-//     default:
-//       return;
-//   }
-// });
-
-// const { email, password } = values;
-// dispatch(authOperations.logIn({ email: email, password: password }));

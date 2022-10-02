@@ -9,7 +9,6 @@ const NavigationBar = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const name = useSelector(authSelectors.getUsername);
 
-  console.log(name);
   return (
     <>
       {isLoggedIn && (
@@ -25,7 +24,7 @@ const NavigationBar = () => {
                     variant="warning"
                     type="button"
                     onClick={() => {
-                      console.log('Log OUT');
+                
                       persistor.purge();
                       return dispatch(authOperations.logOut());
                     }}
