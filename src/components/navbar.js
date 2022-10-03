@@ -24,12 +24,11 @@ const NavigationBar = () => {
                     variant="warning"
                     type="button"
                     onClick={() => {
-                
                       persistor.purge();
                       return dispatch(authOperations.logOut());
                     }}
                   >
-                    Выйти
+                    Log Out
                   </Button>
                 </Navbar.Text>
               </Navbar.Collapse>

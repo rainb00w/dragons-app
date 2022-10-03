@@ -8,7 +8,6 @@ import { useGetAllDragonsQuery } from '../redux/selectionsApi';
 import { useDeleteDragonMutation } from '../redux/selectionsApi';
 import { Link, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import s from './dragonpage.module.scss';
 
 const HomePage = () => {
   const [dragonsData, setDragonsData] = useState();
