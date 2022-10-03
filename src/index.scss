@@ -1,23 +1,90 @@
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 body {
@@ -37,22 +104,26 @@ code {
     monospace;
 }
 
-ol, ul, li {
-	list-style: none;
+ol,
+ul,
+li {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
 
 ul.nav.nav-tabs {
   display: flex;
@@ -62,18 +133,16 @@ ul.nav.nav-tabs {
   padding: 10px;
 }
 
-
-
-a:link, a:visited {
+a:link,
+a:visited {
   text-decoration: none;
-  color: #000000 ;
+  color: #000000;
 }
 
-
-a:hover, a:active {
+a:hover,
+a:active {
   color: ffd24e;
 }
-
 
 .nav-tabs .nav-link:hover {
   color: gray;
@@ -97,46 +166,86 @@ a:hover, a:active {
 
 .homePageLinkImages {
   width: 100px;
-}
-
-.homePageLinks{
-  :not(:last-child) {
-    margin-bottom: 20px;
+  @media screen and (max-width: 479px) {
+    width: 80px;
   }
 }
-.homePageLinkText{
+
+.homePageLinks {
+  padding: 0;
+  // & li:not(:last-child) {
+  //   margin-bottom: 20px;
+  //   @media screen and (max-width: 479px) {
+  //     margin-bottom: 8px;
+  //   }
+  // }
+  @media screen and (max-width: 479px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+.homePageLinksItem {
+  margin: 0 0 20px 0;
+
+  @media screen and (max-width: 479px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.homePageLinkText {
   margin-left: 20px;
+  @media screen and (max-width: 479px) {
+    margin-left: 0;
+    // margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.homePageAddBTN{
-  
+.homePageSelectedItemsTitle {
+  font-weight: 700;
+  @media screen and (max-width: 479px) {
+    text-align: center;
+  }
 }
-
 
 .button-39 {
   margin: 0 0 0 30px;
-  background-color: #FFFFFF;
-  border: 1px solid rgb(209,213,219);
-  border-radius: .5rem;
+  background-color: #ffffff;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
   box-sizing: border-box;
   color: #111827;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: .875rem;
+  font-family: 'Inter var', ui-sans-serif, system-ui, -apple-system, system-ui,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.25rem;
   padding: 10px 12px;
   text-align: center;
-  text-decoration: none #D1D5DB solid;
+  text-decoration: none #d1d5db solid;
   text-decoration-thickness: auto;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  @media screen and (max-width: 479px) {
+    margin: 5px 0 0 0;
+  }
 }
 
 .button-39:hover {
-  background-color: rgb(249,250,251);
+  background-color: rgb(249, 250, 251);
 }
 
 .button-39:focus {

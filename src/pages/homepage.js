@@ -46,12 +46,12 @@ const HomePage = () => {
   return (
     <>
       <Container>
-        <div className="dragonsList">
+        <div >
           <ul className="homePageLinks">
             {dragonsData &&
               dragonsData.map(item => {
                 return (
-                  <li key={item.id}>
+                  <li key={item.id} className="homePageLinksItem">
                     <Link to={`/dragons/${item.id}`} state={{ from: location }}>
                       <img
                         src={item.flickr_images[0]}
@@ -72,7 +72,7 @@ const HomePage = () => {
 
         {data?.length > 0 && (
           <div >
-            <p>Your selected dragons : </p>
+            <p className="homePageSelectedItemsTitle"> Your selected dragons : </p>
             <ul className="homePageLinks">
               {data.map(item => {
                 return (

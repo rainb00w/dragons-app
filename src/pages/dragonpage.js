@@ -28,7 +28,7 @@ const DragonPage = () => {
 
   return (
     <>
-      <Container>
+      <Container style={{ marginBottom: '60px' }}>
         {!dragon && <p>Downloading</p>}
         {error && <div>There are no such dragon !</div>}
         <Swiper
