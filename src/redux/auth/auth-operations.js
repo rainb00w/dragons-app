@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:3006/api/auth/';
+axios.defaults.baseURL = 'https://test-back-end-raduka.herokuapp.com/api/auth/';
 
 const token = {
   set(token) {
@@ -53,6 +53,7 @@ const operations = {
   register,
   logOut,
   logIn,
+
 };
 
 export default operations;
