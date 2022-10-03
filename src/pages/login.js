@@ -8,7 +8,7 @@ import { authOperations } from '../redux/auth';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const LoginPage = () => {
   return (
     <>
       <Container
-        style={{ maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}
+        style={{ maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '60px' }}
       >
         <Card
           className="text-center border-0 mt-5 mb-4"
@@ -144,7 +144,6 @@ const LoginPage = () => {
                   })
                 )
                   .then(answer => {
-                    console.log('answer here', answer?.meta.requestStatus);
                     if (answer?.error?.message === 'Rejected') {
                       toast.warn(
                         'Please check your info! All fields should be unique',
@@ -153,16 +152,14 @@ const LoginPage = () => {
                         }
                       );
                     }
-                    if ( answer?.meta.requestStatus === 'fulfilled') {
+                    if (answer?.meta.requestStatus === 'fulfilled') {
                       actions.resetForm({ name: '', email: '', password: '' });
-                      toast.warn(
-                        'Please check your email!',
-                        {
-                          position: toast.POSITION.TOP_CENTER,
-                        }
-                      );
-                      setTimeout(() => {    navigate('/') }, 2000);
-                    
+                      toast.warn('Please check your email!', {
+                        position: toast.POSITION.TOP_CENTER,
+                      });
+                      setTimeout(() => {
+                        navigate('/');
+                      }, 2000);
                     }
                   })
                   .catch(error => console.log('error', error));

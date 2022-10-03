@@ -22,7 +22,7 @@ const HomePage = () => {
 
   const handleAddDragon = async (name, id) => {
     const normalizedName = name.toLowerCase();
-    if (data.find(dragon => dragon.name.toLowerCase() === normalizedName)) {
+    if (data?.find(dragon => dragon.name.toLowerCase() === normalizedName)) {
       toast.warn('This dragon has already been chosen!', {
         position: toast.POSITION.TOP_CENTER,
       });
