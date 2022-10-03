@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar />
-      <Suspense fallback="Load...">
+      <Suspense fallback="Loading...">
         <Routes>
           <Route
             exact
