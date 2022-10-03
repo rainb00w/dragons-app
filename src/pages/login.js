@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
@@ -8,16 +8,20 @@ import { authOperations } from '../redux/auth';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [key, setKey] = useState('Login');
 
   return (
     <>
       <Container
-        style={{ maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '60px' }}
+        style={{
+          maxWidth: '600px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginBottom: '60px',
+        }}
       >
         <Card
           className="text-center border-0 mt-5 mb-4"
@@ -31,7 +35,8 @@ const LoginPage = () => {
         </Card>
 
         <Tabs
-          defaultActiveKey="login"
+          activeKey={key}
+          onSelect={k => setKey(k)}
           id="uncontrolled-tab-example"
           className="mb-2"
           style={{
@@ -41,7 +46,7 @@ const LoginPage = () => {
           }}
         >
           <Tab
-            eventKey="login"
+            eventKey="Login"
             title="Log In"
             style={{
               maxWidth: '300px',
@@ -158,7 +163,7 @@ const LoginPage = () => {
                         position: toast.POSITION.TOP_CENTER,
                       });
                       setTimeout(() => {
-                        navigate('/login');
+                        setKey('Login');
                       }, 2000);
                     }
                   })
