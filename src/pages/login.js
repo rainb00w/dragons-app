@@ -158,7 +158,7 @@ const LoginPage = () => {
                         position: toast.POSITION.TOP_CENTER,
                       });
                       setTimeout(() => {
-                        navigate('/');
+                        navigate('/login');
                       }, 2000);
                     }
                   })
