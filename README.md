@@ -46,7 +46,6 @@ For authorization and saving personal data, a self-written back-end is used. The
 
 To use the application you need to register otherwise all other pages except the login will be hidden. 
 During registration, you will receive an email from griffon.aneroid-0a@icloud.com
-
-You should follow the link and then manually return to the main page.
+After confirmation you will be redirected to the login page.
 
 ## All the best !
